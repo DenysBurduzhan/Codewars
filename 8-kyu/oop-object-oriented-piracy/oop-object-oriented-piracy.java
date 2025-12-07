@@ -7,21 +7,8 @@ public class Ship {
     this.crew = crew;
   }
 ​
-  public double getDraft() {
-        return draft;
-    }
-​
-    public int getCrew() {
-        return crew;
-    }
-​
-    public boolean isWorthIt(){
-        double draft = getDraft();
-        int crew = getCrew();
-        double weight = 1.5;
-        if(draft - crew * weight > 20){
-            return true;
-        }
-        return false;
-    }
+  public boolean isWorthIt(){
+    return draft - crew * 1.5 > 20;
+  }
+  // your code here
 } 
