@@ -1,0 +1,1 @@
+<h2><a href=https://www.codewars.com/kata/632408defa1507004aa4f2b5/train/java target="_blank">Double value every next call</a></h2><h3>7 kyu</h3><p>This kata is about static method that should return different values.</p><p>On the first call it must be 1, on the second and others - it must be a double from previous value. </p><p>Look tests for more examples, good luck :)</p>
