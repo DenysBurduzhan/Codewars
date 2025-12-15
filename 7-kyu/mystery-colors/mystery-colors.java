@@ -1,15 +1,11 @@
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+​
 public class MysteryColorAnalyzerImpl implements MysteryColorAnalyzer{
     public List<Color> mysteryColors = List.of(Color.values());
     @Override
     public int numberOfDistinctColors(List<Color> mysteryColors) {
-        List<Color> unique = new ArrayList<>();
-        for(Color un : mysteryColors){
-            if(!unique.contains(un)){
-                unique.add(un);
-            }
-        }
+        HashSet<Color> unique = new HashSet<>(mysteryColors);
         return unique.size();
     }
 ​
@@ -23,4 +19,4 @@ public class MysteryColorAnalyzerImpl implements MysteryColorAnalyzer{
         }
         return counter;
     }
-}
+  }
