@@ -4,7 +4,7 @@ public class Kata
     {
         int num = 0;
         for(int j : n){
-            num += j * j;
+           num += (int) Math.pow(j,2);
         }
         return num;
     }
