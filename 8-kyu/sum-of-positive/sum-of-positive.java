@@ -1,13 +1,7 @@
+import java.util.Arrays;
 public class Positive{
 ​
   public static int sum(int[] arr){
-        int sum = 0;
-        for (int j : arr) {
-            if (j > 0) {
-                sum += j;
-            }
-        }
-        return sum;
-    }
-​
+    return Arrays.stream(arr).filter(i -> i > 0).sum();
+  }
 }
