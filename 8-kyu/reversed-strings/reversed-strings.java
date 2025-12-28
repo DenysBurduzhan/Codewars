@@ -1,8 +1,11 @@
 public class Kata {
 ​
   public static String solution(String str) {
-​
-        return new StringBuilder(str).reverse().toString();
+        String rev = "";
+        for(int i = 0; i < str.length(); i++){
+            rev += str.charAt(str.length() -1 -i);
+        }
+        return rev;
     }
 ​
 }
