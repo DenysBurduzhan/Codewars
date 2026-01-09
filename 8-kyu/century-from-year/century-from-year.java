@@ -1,8 +1,6 @@
 public class Solution {
   public static int century(int number) {
-    if(number % 100 == 0){
-            return number / 100;
-        }
-    return number / 100 + 1;
+    double cent = (double) number / 100;
+        return (int) Math.ceil(cent);
   }
 }
