@@ -1,10 +1,10 @@
+import java.util.Arrays;
+import java.util.stream.Collectors;
 public class AbbreviateTwoWords {
 ​
   public static String abbrevName(String name) {
-    String[] str = name.split(" ");
-        StringBuilder builder = new StringBuilder();
-        String first = String.valueOf(str[0].charAt(0)).toUpperCase();
-        String last = String.valueOf(str[1].charAt(0)).toUpperCase();
-        return builder.append(first).append(".").append(last).toString();
+    return Arrays.stream(name.split(" "))        
+                .map(word -> word.substring(0, 1).toUpperCase()) 
+                .collect(Collectors.joining(".")); 
   }
 }
