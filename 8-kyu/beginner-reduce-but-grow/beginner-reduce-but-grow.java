@@ -1,11 +1,10 @@
+import java.util.Arrays;
 public class Kata{
 ​
   public static int grow(int[] x){
-        int sum = 1;
-        for(int i : x){
-            sum *= i;
-        }
-        return sum;
+​
+    return Arrays.stream(x).reduce(1,(a,b) -> a * b);
+  
   }
 ​
 }
