@@ -1,16 +1,16 @@
-import java.util.ArrayList;
-public class DescendingOrder {
+ public class DescendingOrder {
   public static int sortDesc(final int num) {
-     ArrayList<Integer> lis = new ArrayList<>();
-        String[] str = String.valueOf(num).split("");
-        for(String n : str){
-            lis.add(Integer.parseInt(n));
+    String[] str = String.valueOf(num).split("");
+        for (int i = 0; i < str.length; i++) {
+            for (int j = 0; j < str.length - 1; j++) {
+                int a = Integer.parseInt(str[j]);
+                int b = Integer.parseInt(str[j + 1]);
+                if (b > a) {
+                    str[j] = String.valueOf(b);
+                    str[j + 1] = String.valueOf(a);
+                }
+            }
         }
-        lis.sort((a, b) -> b - a);
-        String s = "";
-        for(int i : lis){
-            s += i;
-        }
-        return Integer.parseInt(s);
+        return Integer.parseInt(String.join("", str));
   }
 }
