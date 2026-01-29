@@ -1,16 +1,9 @@
-public class SpinWords {
+import java.util.Arrays;
+import java.util.stream.Collectors;
 ​
-  public String spinWords(String sentence) {
-    String[] str = sentence.split(" ");
-        StringBuilder builder = new StringBuilder();
-        for(String value : str){
-            if(value.length() < 5){
-                builder.append(value).append(" ");
-            }else{
-                StringBuilder reversed = new StringBuilder(value).reverse();
-                builder.append(reversed).append(" ");
-            }
-        }
-        return builder.toString().trim();
+public class SpinWords {
+       public static String spinWords(String sentence) {
+        return  Arrays.stream(sentence.split(" "))
+                 .map(str -> str.length() >= 5 ? new StringBuilder(str).reverse() : new StringBuilder().append(str)).collect(Collectors.joining(" "));
     }
 }
