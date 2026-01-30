@@ -1,16 +1,14 @@
+import java.util.stream.IntStream;
+import java.util.stream.Collectors;
+​
 public class DuplicateEncoder {
-  static String encode(String word){
-    word = word.toLowerCase();
-    StringBuilder result = new StringBuilder();
-    for (int i = 0; i < word.length(); i++) {
-        char c = word.charAt(i);
-        if (word.indexOf(c) != word.lastIndexOf(c)) {
-            result.append(")");
-        } else {
-            result.append("(");
-        }
+    static String encode(String word) {
+        word = word.toLowerCase();
+        String finalWord = word;
+        return IntStream.range(0, word.length())
+                .mapToObj(i -> finalWord.indexOf(finalWord.charAt(i)) != finalWord.lastIndexOf(finalWord.charAt(i)) ? ")" : "(")
+                .collect(Collectors.joining());
     }
-    return result.toString();
 }
-}
+​
 ​
