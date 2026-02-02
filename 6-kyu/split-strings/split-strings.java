@@ -1,14 +1,9 @@
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.IntStream;
 public class StringSplit {
     public static String[] solution(String s) {
-         if(s.length() % 2 == 1){
-           s = s +"_";
-       }
-        ArrayList<String> str = new ArrayList<>();
-           for(int i = 0; i < s.length(); i+=2){
-               str.add(s.substring(i, i+2));
-           }
-        return str.toArray(new String[0]);
+        s = s.length() % 2 == 1 ? s +"_" : s;
+        String finalS = s;
+        return IntStream.range(0, s.length() / 2).mapToObj(i -> finalS.substring(i * 2,i * 2 +2)).toArray(String[] :: new);
     }
 }
