@@ -1,16 +1,10 @@
 class Persist {
   public static int persistence(long n) {
-        String str = String.valueOf(n);
-        int per = 1;
-        int counter = 0;
-       while (str.length() != 1) {
-           for (int i = 0; i < str.length(); i++) {
-               per *= Integer.parseInt(String.valueOf(str.charAt(i)));
-           }
-           str = per + "";
-           per = 1;
-           counter++;
-       }
-        return counter;
+        int steps = 0;
+        while (n >= 10){
+            n = String.valueOf(n).chars().map(s -> s - '0').reduce(1,(a,b) -> a * b);
+            steps++;
+        }
+        return steps;
     }
 }
