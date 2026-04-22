@@ -1,28 +1,23 @@
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
+import java.util.HashMap;
+import java.util.Stack;
 ​
 public class DirReduction {
-   public static String[] dirReduc(String[] arr) {
-        ArrayList<String> list = new ArrayList<>();
-        Collections.addAll(list,arr);
-        for(int i = 0; i < list.size(); i++) {
-            if (i + 1 == list.size()) {
-                return list.toArray(new String[0]);
+    public static String[] dirReduc(String[] arr) {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("NORTH", "SOUTH");
+        map.put("EAST", "WEST");
+        map.put("SOUTH", "NORTH");
+        map.put("WEST", "EAST");
+​
+        Stack<String> stack = new Stack<>();
+        for (String s : arr) {
+            if(!stack.isEmpty() && map.get(s).equals(stack.peek())) {
+                stack.pop();
+            }else{
+                stack.push(s);
             }
-            String first = list.get(i);
-            String second = list.get(i + 1);
-            if (first.equalsIgnoreCase("North") && second.equalsIgnoreCase("South") ||
-                    first.equalsIgnoreCase("South") && second.equalsIgnoreCase("North")) {
-                list.remove(i);list.remove(i);
-                i = -1;
-            } else if(first.equalsIgnoreCase("East") && second.equalsIgnoreCase("West") ||
-              first.equalsIgnoreCase("West") && second.equalsIgnoreCase("East")){
-                  list.remove(i);list.remove(i);
-                  i = -1;
-              }
-            }
-        return list.toArray(new String[0]);
+        }
+       return stack.toArray(new String[0]);
     }
 }
-​
