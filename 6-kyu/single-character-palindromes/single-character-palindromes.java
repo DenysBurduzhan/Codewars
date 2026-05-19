@@ -1,6 +1,6 @@
 import java.util.*;
 class Solution{    
-    public static String solve(String s) {
+   public static String solve(String s) {
             if (isPalindrome(s)) {
                 return "OK";
             }
@@ -14,12 +14,6 @@ class Solution{
         }
 ​
         private static boolean isPalindrome(String s) {
-            int l = 0, r = s.length() - 1;
-            while (l < r) {
-                if (s.charAt(l) != s.charAt(r)) return false;
-                l++;
-                r--;
-            }
-            return true;
+           return  s.contentEquals(new StringBuilder(s).reverse());
         }
 }
