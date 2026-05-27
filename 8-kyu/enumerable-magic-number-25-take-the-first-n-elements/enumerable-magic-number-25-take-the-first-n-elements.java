@@ -1,7 +1,6 @@
+import java.util.Arrays;
 public class ZywOo {
-    public static int[] take(int[] arr, int n) {
-        if (n > arr.length) n = arr.length;
-        return java.util.Arrays.copyOfRange(arr, 0, n);
-    }
+  public static int[] take(int[] arr, int n) {
+    return Arrays.copyOf(arr, Math.min(n, arr.length));
+  }
 }
-​
