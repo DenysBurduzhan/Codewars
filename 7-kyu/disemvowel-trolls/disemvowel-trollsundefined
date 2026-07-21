@@ -1,0 +1,17 @@
+#include <iostream>
+#include <ostream>
+#include <string>
+#include <bits/stdc++.h>
+using namespace std;
+​
+string disemvowel(const string& str) {
+  const string vowels = "aeiouAEIOU";
+    string result;
+    for ( char i : str) {
+        if (vowels.find(i) == string::npos) {
+            result += i;
+        }
+    }
+    return result;
+}
+​
