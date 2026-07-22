@@ -1,0 +1,21 @@
+#include <cstdint>
+#include <string>
+#include <iostream>
+#include <algorithm>
+​
+​
+std::string add_binary(uint64_t a, uint64_t b) {
+    std::string bin;
+    uint64_t n = a + b;
+  if (n == 0) {
+        return "0";
+    }
+    while (n > 0) {
+        uint64_t bit = n%2;
+        bin.push_back('0' + bit);
+        n /= 2;
+    }
+​
+    std :: reverse(bin.begin(), bin.end());
+    return bin;
+}
