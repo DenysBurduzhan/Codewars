@@ -3,13 +3,8 @@
 ​
 int sumTriangularNumbers(int n)
 {
-    if (n <= 0) {
-      return 0;
-    }
-    int sum = 0;
-    while(n != 0){
-        sum += n *(n +1) / 2;
-        n--;
-    }
-  return sum;
+  if (n>0){
+    return n*(n+1)*(n+2)/6;
+  }
+  return 0;
 }
