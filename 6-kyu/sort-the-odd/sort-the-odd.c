@@ -1,29 +1,12 @@
 #include <stdlib.h>
 ​
 void sort_array(size_t n, int arr[n]) {
-    int odd[n];
-    size_t oddSize = 0;
-​
-    for (size_t i = 0; i < n; i++)
-        if (arr[i] % 2 != 0)
-            odd[oddSize++] = arr[i];
- 
-   if (oddSize > 1) {
-    for (size_t i = 0; i < oddSize - 1; i++) {
-        for (size_t j = 0; j < oddSize - i - 1; j++) {
-            if (odd[j] > odd[j + 1]) {
-                int tmp = odd[j];
-                odd[j] = odd[j + 1];
-                odd[j + 1] = tmp;
-            }
-        }
+  for (long long i = 0; i < (long long)n - 1; ++i)
+    for (unsigned long j = i + 1; j < n; ++j)
+      if (arr[i] & 1 && arr[j] & 1 && arr[i] > arr[j])
+      {
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
     }
 }
-​
-​
-    size_t oddIndex = 0;
-    for (size_t i = 0; i < n; i++)
-        if (arr[i] % 2 != 0)
-            arr[i] = odd[oddIndex++];
-}
-​
