@@ -1,13 +1,9 @@
 #include <stdbool.h>
+​
+#include <stdbool.h>
 #include <string.h>
 ​
 bool solution(const char *string, const char *ending) {
-    size_t len_str = strlen(string);
-    size_t len_end = strlen(ending);
-​
-    if (len_end > len_str) return false;
-    if (len_end == 0) return true;
-​
-    return strcmp(string + len_str - len_end, ending) == 0;
+  const size_t lenString = strlen(string), lenEnding = strlen(ending);
+  return lenEnding <= lenString && strcmp(string + (lenString - lenEnding), ending) == 0;
 }
-​
